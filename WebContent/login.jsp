@@ -35,11 +35,11 @@
     	
     			<tr>
 					<td>USERNAME</td>
-					<td><input type="text" name="uid" required="required"/></td>
+					<td><input type="text" name="uid" required="required"></td>
 				</tr>
 				<tr>
 					<td>PASSWORD</td>
-					<td><input type="password" name="pass" required="required"/></td>
+					<td><input type="password" name="pass" required="required"></td>
 				</tr>
     	
     	</table>

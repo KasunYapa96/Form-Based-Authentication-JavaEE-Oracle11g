@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class customerDBUtil {
+public class CustomerDAO {
 
 	     public static Customer validate(String userName,String password) {
 	   

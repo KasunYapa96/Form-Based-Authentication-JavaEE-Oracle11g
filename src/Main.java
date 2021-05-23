@@ -1,13 +1,13 @@
 import java.util.List;
 
 import com.customer.Customer;
-import com.customer.customerDBUtil;
+import com.customer.CustomerDAO;
 
 public class Main {
 
 	public static void main(String[] args) throws ClassNotFoundException {
 		
-		customerDBUtil cdb=new customerDBUtil();
+		CustomerDAO cdb=new CustomerDAO();
 
 		Customer c=new Customer("ww", "rr", "rr", "22", "qq");
 		cdb.insertDetails(c);

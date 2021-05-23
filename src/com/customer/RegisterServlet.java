@@ -25,7 +25,7 @@ public class RegisterServlet extends HttpServlet {
 		String pass = request.getParameter("pass");
 		
 		
-		customerDBUtil dao=new customerDBUtil();
+		CustomerDAO dao=new CustomerDAO();
 		
 		Customer c=new Customer(name, email, phone, uname, pass);
 		dao.insertDetails(c);

@@ -21,38 +21,36 @@ public class Loginservlet extends HttpServlet {
 		
 	String username=request.getParameter("uid");
 	String password= request.getParameter("pass");
-	
-	if(username==null) {
-		
-		response.sendRedirect("login.jsp");  
-	}
-	
+
+	CustomerDAO dao=new CustomerDAO();
 	
 	try {
-	customerDBUtil dao=new customerDBUtil();
-	Customer cusDetails= dao.validate(username,password);
-	System.out.println("hiiiii");
-	System.out.println(username+password);
-	System.out.println(cusDetails);
-	
-    if (cusDetails != null) {
-        HttpSession session = request.getSession();
-        session.setAttribute("user", cusDetails);
-       
-    } else {
-        String message = "Invalid email/password";
-        request.setAttribute("message", message);
-    }
-     
-	
-	}
-	catch(Exception e){
+		Customer cusDetails=null;
+		cusDetails= dao.validate(username,password);
+		System.out.println("hiiiii");
+		System.out.println(username+password);
+		System.out.println(cusDetails.getName());
+
+		
+		if(cusDetails != null){
+			
+			 HttpSession session = request.getSession();
+			 session.setAttribute("user", cusDetails);
+			 
+			 RequestDispatcher dis= request.getRequestDispatcher("useraccount.jsp");
+				dis.forward(request, response);
+			
+		}
+		else {
+			response.sendRedirect("login.jsp");
+		}
+
+	} catch (Exception e) {
 		e.printStackTrace();
 	}
 	
 	
-	RequestDispatcher dis= request.getRequestDispatcher("useraccount.jsp");
-	dis.forward(request, response);
+
 	
 	}
 

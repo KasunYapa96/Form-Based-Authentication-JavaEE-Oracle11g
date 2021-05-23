@@ -10,6 +10,13 @@
 </head>
 <body style="background-color:powderblue;">
 
+<%  if(session.getAttribute("user")==null) 
+{
+response.sendRedirect("login.jsp");
+}
+
+%>
+
 <h1>Welcome ${user.getName()} !!!!!!!!!!!!!!!!!!</h1>
 
 <h2>Details are shown below</h2>
