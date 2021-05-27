@@ -57,11 +57,11 @@ public class CustomerDAO {
 	    	return cust; 
 	     }
 	     
-	     public void insertDetails(Customer c) {
+	     public boolean insertDetails(Customer c) {
 	 		
 	 		Connection con = null;
 	 		PreparedStatement pmt = null;
-	 		
+	 	
 	 		try {
 	 			
 	 			con = DbConnection.getConnection();
@@ -75,6 +75,11 @@ public class CustomerDAO {
 	 			pmt.setString(5,  c.getPassword());
 	 			
 	 			int n = pmt.executeUpdate();
+	 		
+	 			
+	 			if(n==1) {
+	 				return true;
+	 			}
 	 			
 	 		} catch(SQLException e) {
 	 			e.printStackTrace();
@@ -89,6 +94,7 @@ public class CustomerDAO {
 	 				e.printStackTrace();
 	 			}
 	 		}
+			return false;
 	 	}
 	     
 	     

@@ -22,11 +22,32 @@
       return( true );
   }
     </script>   --> 
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
 
+.bg {
+    background-image: url("wp.png");
+    height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.no-background {
+    background-image: url("images/blank.jpg");
+}
+</style>
 
 </head>
 <body>
+<div class="bg">
 
+<center>
+<br><br><br><br><br><br><br><br><br><br><br>
 <h2>Please login here</h2>
 
     <form action="Loginservlet" method="post" name="myForm" onsubmit = "return(validate());">
@@ -53,6 +74,7 @@
   <a href="Register.jsp">  
       <input type="submit" value="Create an account"/>  
      </a>
-
+     </center>
+</div>
 </body>
 </html>

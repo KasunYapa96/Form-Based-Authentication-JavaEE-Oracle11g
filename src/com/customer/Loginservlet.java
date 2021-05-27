@@ -1,6 +1,7 @@
 package com.customer;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -23,6 +24,7 @@ public class Loginservlet extends HttpServlet {
 	String password= request.getParameter("pass");
 
 	CustomerDAO dao=new CustomerDAO();
+	PrintWriter out=response.getWriter();
 	
 	try {
 		Customer cusDetails=null;
@@ -46,7 +48,9 @@ public class Loginservlet extends HttpServlet {
 		}
 
 	} catch (Exception e) {
-		e.printStackTrace();
+		out.println("Username or Password is Incorrect");
+		RequestDispatcher dis= request.getRequestDispatcher("login.jsp");
+		dis.include(request, response);
 	}
 	
 	

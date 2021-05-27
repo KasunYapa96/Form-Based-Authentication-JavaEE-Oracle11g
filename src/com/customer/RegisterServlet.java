@@ -1,6 +1,9 @@
 package com.customer;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,11 +29,23 @@ public class RegisterServlet extends HttpServlet {
 		
 		
 		CustomerDAO dao=new CustomerDAO();
+		PrintWriter out=response.getWriter();
 		
 		Customer c=new Customer(name, email, phone, uname, pass);
-		dao.insertDetails(c);
+		boolean r=dao.insertDetails(c);
 		
-		response.sendRedirect("login.jsp");  
+		if(r==true) {
+			out.println("User added succesfully!!!! Login here.....");
+			RequestDispatcher dis= request.getRequestDispatcher("login.jsp");
+			dis.include(request, response);
+		}else {
+			out.println("There was a problem please try to Create your account again......>>>>");
+			RequestDispatcher dis= request.getRequestDispatcher("login.jsp");
+			dis.include(request, response);
+		}
+		
+		
+	
 		
 	}
 

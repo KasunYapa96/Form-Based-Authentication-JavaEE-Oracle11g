@@ -32,7 +32,7 @@ response.sendRedirect("login.jsp");
 
 
   <a href="logout">  
-      <input type="submit" value="Logout"/>  
+      <input type="submit"  value="Logout"/>  
      </a>
 
 
